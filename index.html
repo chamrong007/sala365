@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4f46e5"/>
+    <title>Sala365 - The Future of Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="min-h-screen">
+    
+    <!-- Promotion Banner -->
+    <div class="bg-red-500 text-white text-center p-3 font-bold">
+        <p>🎉 New Year Promotion! Get 50% off select courses for a limited time! 🎉</p>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="glass-effect shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-indigo-600">
+                    <a href="#">
+                        <svg class="h-8 w-auto inline-block -mt-1" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        Sala365
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <!-- Courses Dropdown -->
+                    <div class="relative dropdown-container">
+                        <button class="flex items-center text-slate-800 hover:text-indigo-600 font-medium">
+                            Courses
+                            <svg class="h-5 w-5 ml-1 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="dropdown absolute mt-2 w-56 rounded-lg glass-effect shadow-xl -ml-8">
+                            <div class="p-2">
+                                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="block px-4 py-2 text-sm text-slate-800 rounded-md hover:bg-white/50">All Courses</a>
+                                <div class="my-1 border-t border-white/50"></div>
+                                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="block px-4 py-2 text-sm text-slate-800 rounded-md hover:bg-white/50">Network Professional</a>
+                                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="block px-4 py-2 text-sm text-slate-800 rounded-md hover:bg-white/50">Linux Admin</a>
+                                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="block px-4 py-2 text-sm text-slate-800 rounded-md hover:bg-white/50">Cyber Security</a>
+                                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="block px-4 py-2 text-sm text-slate-800 rounded-md hover:bg-white/50">Professional Design</a>
+                                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="block px-4 py-2 text-sm text-slate-800 rounded-md hover:bg-white/50">Cyber Security Architect</a>
+                                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="block px-4 py-2 text-sm text-slate-800 rounded-md hover:bg-white/50">Digital for Kids</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-slate-800 hover:text-indigo-600 font-medium">For Instructors</a>
+                    <a href="#" class="text-slate-800 hover:text-indigo-600 font-medium">About Us</a>
+                    <a href="#" class="text-slate-800 hover:text-indigo-600 font-medium">Contact</a>
+                </nav>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-slate-800 hover:text-indigo-600 font-medium">Log In</a>
+                    <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors">Sign Up</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-slate-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <div class="glass-effect rounded-xl p-2">
+                    <div>
+                        <button id="mobile-courses-btn" class="w-full flex justify-between items-center py-2 px-4 text-sm text-slate-800 hover:bg-white/50 rounded-lg">
+                            <span>Courses</span>
+                            <svg id="mobile-courses-arrow" class="h-5 w-5 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="mobile-courses-dropdown" class="mobile-courses-dropdown pl-4 mt-2 space-y-2">
+                            <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="block py-2 px-4 text-sm text-slate-700 hover:bg-white/50 rounded-lg">All Courses</a>
+                            <a href="https://forms.cloud.microsoft/r/MqvBJcZHnmt="_blank" class="block py-2 px-4 text-sm text-slate-700 hover:bg-white/50 rounded-lg">Network Professional</a>
+                            <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="block py-2 px-4 text-sm text-slate-700 hover:bg-white/50 rounded-lg">Linux Admin</a>
+                            <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="block py-2 px-4 text-sm text-slate-700 hover:bg-white/50 rounded-lg">Cyber Security</a>
+                            <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="block py-2 px-4 text-sm text-slate-700 hover:bg-white/50 rounded-lg">Professional Design</a>
+                            <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="block py-2 px-4 text-sm text-slate-700 hover:bg-white/50 rounded-lg">Cyber Security Architect</a>
+                            <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="block py-2 px-4 text-sm text-slate-700 hover:bg-white/50 rounded-lg">Digital for Kids</a>
+                        </div>
+                    </div>
+                    <a href="#" class="block py-2 px-4 text-sm text-slate-800 hover:bg-white/50 rounded-lg">For Instructors</a>
+                    <a href="#" class="block py-2 px-4 text-sm text-slate-800 hover:bg-white/50 rounded-lg">About Us</a>
+                    <a href="#" class="block py-2 px-4 text-sm text-slate-800 hover:bg-white/50 rounded-lg">Contact</a>
+                     <div class="mt-4 pt-4 border-t border-white/50">
+                        <a href="#" class="block w-full text-center py-2 px-4 text-sm text-slate-800 hover:bg-white/50 rounded-lg">Log In</a>
+                        <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="block w-full mt-2 text-center bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="pt-20 pb-16 md:pt-32 md:pb-28">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-800 leading-tight mb-4">
+                    Unlock Your Potential, One Skill at a Time
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+                    Join thousands of learners on Sala365 to master new skills, advance your career, and explore your passions with courses from world-class experts.
+                </p>
+                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="bg-indigo-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-indigo-700 transition-transform transform hover:scale-105">
+                    Explore Courses
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Courses Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">
+                    Featured Courses
+                </h2>
+                <p class="text-center text-slate-600 mb-12">
+                    Hand-picked courses to help you get started.
+                </p>
+                <div id="featured-courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                    
+                    <!-- Course Card 1 -->
+                    <div class="course-wrapper cursor-pointer" data-target="detail-overlay-1">
+                        <div class="glass-effect rounded-xl shadow-lg overflow-hidden card-hover-effect z-10 relative">
+                           <div class="relative">
+                                <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Networking" alt="Network Professional Course" class="w-full h-48 object-cover">
+                                <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">50% OFF</div>
+                           </div>
+                            <div class="p-6">
+                                <div class="font-semibold text-blue-600 text-sm mb-1">IT & Networking</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Network Professional</h3>
+                                <p class="text-slate-700 text-sm mb-4">By Industry Experts</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-baseline">
+                                        <span class="text-2xl font-bold text-red-500">$499</span>
+                                        <span class="text-lg text-slate-500 line-through ml-2">$999</span>
+                                    </div>
+                                    <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="bg-red-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-red-600 transition-colors">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Course Card 2 -->
+                    <div class="course-wrapper cursor-pointer" data-target="detail-overlay-2">
+                        <div class="glass-effect rounded-xl shadow-lg overflow-hidden card-hover-effect z-10 relative">
+                             <div class="relative">
+                                <img src="https://placehold.co/600x400/1f2937/ffffff?text=Linux+Admin" alt="Linux Admin Course" class="w-full h-48 object-cover">
+                                <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">50% OFF</div>
+                           </div>
+                             <div class="p-6">
+                                <div class="font-semibold text-slate-600 text-sm mb-1">IT & Networking</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Linux Admin</h3>
+                                <p class="text-slate-700 text-sm mb-4">By IT Professionals</p>
+                                <div class="flex items-center justify-between">
+                                     <div class="flex items-baseline">
+                                        <span class="text-2xl font-bold text-red-500">$499</span>
+                                        <span class="text-lg text-slate-500 line-through ml-2">$999</span>
+                                    </div>
+                                    <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="bg-red-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-red-600 transition-colors">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Course Card 3 -->
+                    <div class="course-wrapper cursor-pointer" data-target="detail-overlay-3">
+                         <div class="glass-effect rounded-xl shadow-lg overflow-hidden card-hover-effect z-10 relative">
+                              <div class="relative">
+                                <img src="https://placehold.co/600x400/ef4444/ffffff?text=Security" alt="Cyber Security Course" class="w-full h-48 object-cover">
+                                <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">50% OFF</div>
+                           </div>
+                            <div class="p-6">
+                                <div class="font-semibold text-red-600 text-sm mb-1">Security</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Cyber Security</h3>
+                                <p class="text-slate-700 text-sm mb-4">By Security Specialists</p>
+                                <div class="flex items-center justify-between">
+                                     <div class="flex items-baseline">
+                                        <span class="text-2xl font-bold text-red-500">$499</span>
+                                        <span class="text-lg text-slate-500 line-through ml-2">$999</span>
+                                    </div>
+                                    <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="bg-red-500 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-red-600 transition-colors">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Course Card 4 -->
+                    <div class="course-wrapper cursor-pointer" data-target="detail-overlay-4">
+                         <div class="glass-effect rounded-xl shadow-lg overflow-hidden card-hover-effect z-10 relative">
+                            <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Design" alt="Professional Design Course" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="font-semibold text-amber-600 text-sm mb-1">Design</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Professional Design</h3>
+                                <p class="text-slate-700 text-sm mb-4">By Creative Masters</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-slate-900">$99</span>
+                                    <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="bg-amber-100 text-amber-700 px-4 py-2 rounded-lg font-medium text-sm hover:bg-amber-200 transition-colors">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Course Card 5 -->
+                    <div class="course-wrapper cursor-pointer" data-target="detail-overlay-5">
+                         <div class="glass-effect rounded-xl shadow-lg overflow-hidden card-hover-effect z-10 relative">
+                            <img src="https://placehold.co/600x400/10b981/ffffff?text=Cyber Security Architect" alt="Cyber Security Architect Course" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="font-semibold text-emerald-600 text-sm mb-1">Cyber Security Architect</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Cyber Security Architect</h3>
+                                <p class="text-slate-700 text-sm mb-4">By Cyber Security Architect Gurus</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-slate-900">$99</span>
+                                    <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-lg font-medium text-sm hover:bg-emerald-200 transition-colors">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Course Card 6 -->
+                    <div class="course-wrapper cursor-pointer" data-target="detail-overlay-6">
+                        <div class="glass-effect rounded-xl shadow-lg overflow-hidden card-hover-effect z-10 relative">
+                            <img src="https://placehold.co/600x400/ec4899/ffffff?text=Kids+Code" alt="Digital for Kids Course" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="font-semibold text-pink-600 text-sm mb-1">Kids & Creative</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Digital for Kids</h3>
+                                <p class="text-slate-700 text-sm mb-4">By Fun Educators</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-slate-900">$99</span>
+                                    <a href="https://forms.cloud.microsoft/r/MqvBJcZHnm" target="_blank" class="bg-pink-100 text-pink-700 px-4 py-2 rounded-lg font-medium text-sm hover:bg-pink-200 transition-colors">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">
+                    Why Sala365 is Different
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <!-- Feature 1 -->
+                    <div>
+                        <div class="bg-white/60 shadow-md rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
+                             <svg class="h-10 w-10 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Expert Instructors</h3>
+                        <p class="text-slate-600">Learn from industry experts who are passionate about teaching.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div>
+                        <div class="bg-white/60 shadow-md rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="h-10 w-10 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Flexible Learning</h3>
+                        <p class="text-slate-600">Learn at your own pace, anytime, anywhere.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div>
+                        <div class="bg-white/60 shadow-md rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="h-10 w-10 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Vibrant Community</h3>
+                        <p class="text-slate-600">Connect with a community of learners and educators.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">
+                    What Our Students Say
+                </h2>
+                <div class="max-w-3xl mx-auto glass-effect rounded-xl shadow-lg p-8">
+                     <div class="flex items-center mb-4">
+                        <img class="w-16 h-16 rounded-full mr-4 border-2 border-white/50" src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Avatar of Maria Sanchez">
+                        <div>
+                            <p class="text-lg font-semibold text-slate-900">Maria Sanchez</p>
+                            <p class="text-slate-600">Marketing Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-700 text-lg italic">
+                        "Sala365 completely transformed how I approach professional development. The courses are practical, engaging, and I was able to apply my new skills at work immediately. Highly recommended!"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA Section -->
+        <section class="cta-gradient py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">
+                    Ready to Start Learning?
+                </h2>
+                <p class="text-indigo-200 text-lg max-w-2xl mx-auto mb-8">
+                    Join the Sala365 community today and take the next step in your personal and professional growth.
+                </p>
+                <a href="https://forms.gle/N6m1wVjotrVBfxGi7" target="_blank" class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-200 transition-transform transform hover:scale-105">
+                    Sign Up for Free
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Sala365</h3>
+                    <p class="text-gray-400">
+                        Empowering minds through accessible and high-quality online education.
+                    </p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Courses</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Become an Instructor</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- More Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Social -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://t.me/chamrong_vann" class="text-gray-400 hover:text-white">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.242 8.356-2.13 9.923c-.225 1.043-.84 1.303-1.65.81l-4.823-3.54-2.34 2.25c-.258.25-.47.48-.79.48-.51 0-.735-.225-.84-.81L3.9 13.04c-1.012-.225-1.012-1.02.18-1.5l15.915-6.182c.87-.345 1.62.225 1.38 1.242z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/sala365Cambodia" class="text-gray-400 hover:text-white">
+                           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vsoksamrong/" class="text-gray-400 hover:text-white">
+                           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                        </a>
+                        <a href="https://x.com/chamrong" class="text-gray-400 hover:text-white">
+                           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="m18.901 1.153 3.68 1.84-7.52 12.64 5.31 4.43-1.84 3.68-5.31-4.43-3.68 7.52-1.84-3.68-7.52-5.31-4.43-1.84-3.68-5.31 4.43-3.68-7.52 1.84 3.68 7.52 5.31 4.43z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+                &copy; 2025 Sala365. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Detail Modals -->
+    <div id="detail-overlay-1" class="detail-overlay">
+        <div class="detail-content container mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-5xl">
+            <button class="close-modal-btn absolute top-6 right-6 text-slate-600 hover:text-slate-900 z-20">
+                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="flex border-b border-slate-300/70 mb-6">
+                <button data-tab="ccna1" class="tab-btn active text-slate-800 font-semibold py-2 px-4 rounded-t-lg">CCNA 1</button>
+                <button data-tab="ccna2" class="tab-btn text-slate-600 font-semibold py-2 px-4 rounded-t-lg">CCNA 2</button>
+                <button data-tab="ccna3" class="tab-btn text-slate-600 font-semibold py-2 px-4 rounded-t-lg">CCNA 3</button>
+            </div>
+            
+            <div id="ccna1" class="tab-content active">
+                 <h3 class="text-2xl font-bold text-slate-800 mb-6 text-left">Introduction to Networks</h3>
+                 <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">1. Network Fundamentals:</strong><br><span class="text-sm pl-4 block">- OSI and TCP/IP models<br>- IPv4/IPv6 addressing & subnetting<br>- Cabling and physical interfaces<br>- Wireless principles</span></li><li><strong class="font-semibold text-slate-800 text-base">2. Network Access:</strong><br><span class="text-sm pl-4 block">- VLANs and trunking<br>- Spanning Tree Protocol (STP)<br>- EtherChannel<br>- Wireless LAN access</span></li></ul></div>
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">3. IP Connectivity:</strong><br><span class="text-sm pl-4 block">- Routing concepts<br>- Static and dynamic routing (OSPFv2)<br>- First Hop Redundancy Protocols (FHRP)</span></li><li><strong class="font-semibold text-slate-800 text-base">4. IP Services:</strong><br><span class="text-sm pl-4 block">- NAT, DHCP, NTP, DNS<br>- SNMP, Syslog<br>- QoS concepts</span></li></ul></div>
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">5. Security Fundamentals:</strong><br><span class="text-sm pl-4 block">- Device access control<br>- VPN concepts<br>- Layer 2 security features</span></li><li><strong class="font-semibold text-slate-800 text-base">6. Automation & Programmability:</strong><br><span class="text-sm pl-4 block">- Controller-based networking<br>- REST APIs and JSON<br>- Cisco DNA Center basics</span></li></ul></div>
+                 </div>
+            </div>
+
+            <div id="ccna2" class="tab-content">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 text-left">Switching, Routing, and Wireless Essentials</h3>
+                 <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">1. Spanning Tree Protocol:</strong><br><span class="text-sm pl-4 block">- STP Concepts & Operations<br>- Varieties of STP<br>- STP Configuration & Troubleshooting</span></li><li><strong class="font-semibold text-slate-800 text-base">2. EtherChannel:</strong><br><span class="text-sm pl-4 block">- Link Aggregation Concepts<br>- LACP and PAgP<br>- Configuration and Verification</span></li></ul></div>
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">3. Dynamic Host Configuration Protocol (DHCPv4):</strong><br><span class="text-sm pl-4 block">- DHCPv4 Concepts & Configuration<br>- DHCPv4 Troubleshooting</span></li><li><strong class="font-semibold text-slate-800 text-base">4. Wireless LAN Concepts:</strong><br><span class="text-sm pl-4 block">- Introduction to Wireless<br>- WLAN Components<br>- WLAN Operation & Security</span></li></ul></div>
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">5. Routing Concepts & OSPF:</strong><br><span class="text-sm pl-4 block">- Path Determination<br>- Dynamic Routing Protocols<br>- Single-Area OSPFv2</span></li><li><strong class="font-semibold text-slate-800 text-base">6. First Hop Redundancy:</strong><br><span class="text-sm pl-4 block">- Concepts of Redundant Default Gateways<br>- HSRP, VRRP, GLBP</span></li></ul></div>
+                 </div>
+            </div>
+            
+            <div id="ccna3" class="tab-content">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 text-left">Enterprise Networking, Security, and Automation</h3>
+                 <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">1. Advanced OSPF:</strong><br><span class="text-sm pl-4 block">- Multi-area OSPF<br>- OSPF Tuning and Troubleshooting</span></li><li><strong class="font-semibold text-slate-800 text-base">2. Access Control Lists (ACLs):</strong><br><span class="text-sm pl-4 block">- Standard and Extended ACLs<br>- ACLs for IPv6<br>- Troubleshooting ACLs</span></li></ul></div>
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">3. Network Address Translation (NAT):</strong><br><span class="text-sm pl-4 block">- Static, Dynamic, and PAT<br>- NAT Configuration</span></li><li><strong class="font-semibold text-slate-800 text-base">4. WAN Technologies:</strong><br><span class="text-sm pl-4 block">- Introduction to WANs<br>- VPNs and IPsec<br>- QoS Concepts</span></li></ul></div>
+                    <div class="text-left"><ul class="space-y-4 text-slate-700"><li><strong class="font-semibold text-slate-800 text-base">5. Network Management & Automation:</strong><br><span class="text-sm pl-4 block">- Syslog, SNMP, NetFlow<br>- Introduction to SDN & APIs<br>- Configuration Management Tools</span></li></ul></div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="detail-overlay-2" class="detail-overlay">
+         <div class="detail-content container mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-5xl">
+            <button class="close-modal-btn absolute top-6 right-6 text-slate-600 hover:text-slate-900 z-20">
+                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="flex border-b border-slate-300/70 mb-6">
+                <button data-tab="lpic1" class="tab-btn active text-slate-800 font-semibold py-2 px-4 rounded-t-lg">LPIC-1</button>
+                <button data-tab="lpic2" class="tab-btn text-slate-600 font-semibold py-2 px-4 rounded-t-lg">LPIC-2</button>
+            </div>
+            <div id="lpic1" class="tab-content active">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 text-left">LPIC-1 (First 6 Months)</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2 text-lg">Quarter 1: LPIC-1 Exam 101</h4>
+                        <ul class="list-disc list-inside text-slate-700 text-sm space-y-1">
+                            <li>Weeks 1-2: System Architecture</li>
+                            <li>Weeks 3-4: Linux Installation and Package Management</li>
+                            <li>Weeks 5-6: GNU and Unix Commands</li>
+                            <li>Weeks 7-8: Devices, Linux Filesystems, and FHS</li>
+                            <li>Weeks 9-10: Practice Labs and Review</li>
+                            <li>Weeks 11-13: Mock Exams and Exam 101</li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h4 class="font-bold text-slate-800 mb-2 text-lg">Quarter 2: LPIC-1 Exam 102</h4>
+                        <ul class="list-disc list-inside text-slate-700 text-sm space-y-1">
+                            <li>Weeks 14-15: Shells, Scripting, and Data Management</li>
+                            <li>Weeks 16-17: User Interfaces and Desktops</li>
+                            <li>Weeks 18-19: Administrative Tasks</li>
+                            <li>Weeks 20-21: Essential System Services</li>
+                            <li>Weeks 22-23: Networking Fundamentals</li>
+                            <li>Weeks 24-26: Security, Practice Labs, and Exam 102</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="lpic2" class="tab-content">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 text-left">LPIC-2 (Second 6 Months)</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2 text-lg">Quarter 3: LPIC-2 Exam 201</h4>
+                        <ul class="list-disc list-inside text-slate-700 text-sm space-y-1">
+                            <li>Weeks 27-28: Capacity Planning and Kernel Management</li>
+                            <li>Weeks 29-30: System Startup and Boot Management</li>
+                            <li>Weeks 31-32: Filesystem and Devices</li>
+                            <li>Weeks 33-34: Advanced Storage Administration</li>
+                             <li>Weeks 35-36: Networking Configuration</li>
+                            <li>Weeks 37-39: Practice Labs and Exam 201</li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h4 class="font-bold text-slate-800 mb-2 text-lg">Quarter 4: LPIC-2 Exam 202</h4>
+                        <ul class="list-disc list-inside text-slate-700 text-sm space-y-1">
+                            <li>Weeks 40-41: Domain Name Server (DNS)</li>
+                            <li>Weeks 42-43: Web Services (Apache, Nginx)</li>
+                            <li>Weeks 44-45: File Sharing (Samba, NFS)</li>
+                             <li>Weeks 46-47: Network Client Management</li>
+                            <li>Weeks 48-49: Email Services (Postfix, Dovecot)</li>
+                            <li>Weeks 50-52: Security, Practice Labs, and Exam 202</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="detail-overlay-3" class="detail-overlay"><div class="detail-content container mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-5xl"><button class="close-modal-btn absolute top-6 right-6 text-slate-600 hover:text-slate-900 z-20"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button><h3 class="text-3xl font-bold text-slate-800 mb-6 text-left">Cyber Security Curriculum</h3><p>Details for the Cyber Security course will be available soon.</p></div></div>
+    <div id="detail-overlay-4" class="detail-overlay"><div class="detail-content container mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-5xl"><button class="close-modal-btn absolute top-6 right-6 text-slate-600 hover:text-slate-900 z-20"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button><h3 class="text-3xl font-bold text-slate-800 mb-6 text-left">Professional Design Curriculum</h3><p>Details for the Professional Design course will be available soon.</p></div></div>
+    <div id="detail-overlay-5" class="detail-overlay"><div class="detail-content container mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-5xl"><button class="close-modal-btn absolute top-6 right-6 text-slate-600 hover:text-slate-900 z-20"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button><h3 class="text-3xl font-bold text-slate-800 mb-6 text-left">Cyber Security Architect Curriculum</h3><p>Details for the Cyber Security Architect course will be available soon.</p></div></div>
+    <div id="detail-overlay-6" class="detail-overlay"><div class="detail-content container mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-5xl"><button class="close-modal-btn absolute top-6 right-6 text-slate-600 hover:text-slate-900 z-20"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button><h3 class="text-3xl font-bold text-slate-800 mb-6 text-left">Digital for Kids Curriculum</h3><p>Details for the Digital for Kids course will be available soon.</p></div></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

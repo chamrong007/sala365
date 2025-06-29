@@ -1,0 +1,21 @@
+{
+  "name": "Sala365 - The Future of Learning",
+  "short_name": "Sala365",
+  "description": "An educational platform for modern learning.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#e0f2fe",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
