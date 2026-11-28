@@ -42,6 +42,15 @@ name, the registration form link, and a way to ask a person for help. Telegram
 deep links only open the bot with a start payload; they do not submit a
 registration or send student details.
 
+Configure the bot's persistent menu with **🎓 Register**, **📚 Courses**,
+**💰 Pricing**, and **ℹ️ Information**. Register should link to the published
+Microsoft Form; Courses should list currently available programs; Pricing
+should share confirmed fees or direct the learner to SALA365 for a quote; and
+Information should explain delivery, eligibility, and how to contact the team.
+Keep the course list and form choices aligned with offerings that are actually
+available. The website can link to these bot functions, but the bot menu itself
+must be configured in Telegram.
+
 ## 2. Create the Power Automate flow
 
 Create an **Automated cloud flow** named **SALA365 - Training registration

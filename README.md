@@ -1,5 +1,14 @@
-# sala365
-Website Sala365
+# SALA365
+
+SALA365 is a technology academy and consulting center focused on practical
+learning, professional pathways, and workforce development across Microsoft
+technologies, networking, Linux, cybersecurity, AI, and cloud computing.
+
+The homepage serves university students, IT professionals, government
+organizations, enterprises, and SMEs. It introduces SALA365's vision and
+mission, technology ecosystem, training categories, certification pathways,
+strategic roadmap, university partnership opportunities, corporate services,
+pricing approach, and registration journey.
 
 ## Training registration
 
