@@ -258,6 +258,51 @@
     .path-exams { display: flex; flex-wrap: wrap; gap: 8px; }
     .path-exams span { padding: 6px 9px; border: 1px solid var(--line); border-radius: 6px; color: #435148; font-size: .76rem; font-weight: 700; }
 
+    /* Student learning */
+    .students { background: var(--surface); }
+    .student-courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .student-course {
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .student-course-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .student-course-top .path-level { margin: 0; }
+    .student-course-code { color: var(--muted); font-size: .76rem; font-weight: 700; }
+    .student-course h3 { margin-bottom: 9px; }
+    .student-course > p { margin-bottom: 18px; color: var(--muted); font-size: .91rem; }
+    .course-outline-title { margin: 0 0 10px; font-size: .86rem; font-weight: 700; }
+    .course-outline { display: grid; gap: 8px; margin: 0 0 22px; padding-left: 20px; color: var(--muted); font-size: .86rem; }
+    .student-course .button { margin-top: auto; align-self: flex-start; }
+    .student-register {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      margin-top: 28px;
+      padding: clamp(24px, 4vw, 36px);
+      border: 1px solid #e1ebe3;
+      border-radius: 18px;
+      background: #f2f7f3;
+    }
+    .student-register h3 { margin-bottom: 8px; }
+    .student-register p { max-width: 650px; margin-bottom: 0; color: var(--muted); font-size: .92rem; }
+    .student-register-form { display: flex; align-items: flex-end; gap: 10px; }
+    .student-register-form label { display: grid; gap: 6px; color: #36453c; font-size: .8rem; font-weight: 700; }
+    .student-register-form select {
+      min-height: 48px;
+      min-width: 235px;
+      padding: 0 36px 0 12px;
+      border: 1px solid #cbd8cf;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+    }
+
     /* Corporate training */
     .corporate-panel {
       display: grid;
@@ -332,8 +377,29 @@
       .nav-links { gap: 18px; }
       .hero-grid { gap: 25px; grid-template-columns: 1fr  .85fr; }
       .hero-visual { min-height: 340px; }
-      .categories-grid, .paths-grid { grid-template-columns: repeat(2, 1fr); }
-      .category-card:last-child, .path-card:last-child { grid-column: span 2; }
+      .categories-grid, .paths-grid, .student-courses-grid { grid-template-columns: repeat(2, 1fr); }
+      .category-card:last-child, .path-card:last-child, .student-course:last-child { grid-column: span 2; }
+      .student-register { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 960px) {
+      .nav { min-height: 68px; }
+      .brand img { width: 128px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 16px 18px;
+        border-bottom: 1px solid var(--line);
+        background: var(--white);
+      }
+      .nav-links.is-open { display: flex; flex-direction: column; }
+      .nav-links a:not(.button) { padding: 12px 4px; border-bottom: 1px solid #f0f3f0; }
+      .nav-links .nav-cta { margin-top: 12px; }
     }
     @media (max-width: 680px) {
       html { scroll-padding-top: 72px; }
@@ -367,9 +433,11 @@
       .tag-two { left: 2%; }
       .trust-row { grid-template-columns: 1fr; gap: 16px; }
       .trust-item { justify-content: flex-start; }
-      .categories-grid, .paths-grid { grid-template-columns: 1fr; }
-      .category-card:last-child, .path-card:last-child { grid-column: auto; }
+      .categories-grid, .paths-grid, .student-courses-grid { grid-template-columns: 1fr; }
+      .category-card:last-child, .path-card:last-child, .student-course:last-child { grid-column: auto; }
       .path-card p { min-height: 0; }
+      .student-register-form { align-items: stretch; flex-direction: column; }
+      .student-register-form select { min-width: 0; width: 100%; }
       .corporate-panel { grid-template-columns: 1fr; }
       .corporate-art { min-height: 300px; }
       .contact-card { align-items: flex-start; flex-direction: column; }
@@ -396,6 +464,7 @@
       <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
         <a href="#training">Training</a>
         <a href="#paths">Certification paths</a>
+        <a href="#students">For students</a>
         <a href="#corporate">For organizations</a>
         <a href="#contact">About SALA365</a>
         <a class="button nav-cta" href="#contact">Talk to our team</a>
@@ -559,6 +628,93 @@
             <p>Explore focused learning in security, compliance, data, and business applications.</p>
             <div class="path-exams"><span>Security</span><span>Compliance</span><span>Business apps</span></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section students" id="students">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Microsoft skills for students</p>
+          <h2>Learn practical skills for class and your first career.</h2>
+          <p>Start with the tools students use every day, then explore cloud and security fundamentals. Each course includes guided practice and a clear learning outline.</p>
+        </div>
+
+        <div class="student-courses-grid">
+          <article class="student-course">
+            <div class="student-course-top">
+              <span class="path-level">Beginner</span>
+              <span class="student-course-code">Productivity</span>
+            </div>
+            <h3>Microsoft 365 for study</h3>
+            <p>Build confidence with Microsoft 365 tools for assignments, research, presentations, and group projects.</p>
+            <p class="course-outline-title">Course outline</p>
+            <ol class="course-outline">
+              <li>Set up OneDrive and organize study files</li>
+              <li>Create clear reports in Word</li>
+              <li>Use Excel formulas, tables, and charts</li>
+              <li>Design and deliver presentations in PowerPoint</li>
+              <li>Collaborate with Teams and Outlook</li>
+              <li>Apply the tools in a shared class project</li>
+            </ol>
+            <a class="button button-secondary" href="https://t.me/Sala365Bot?start=student-m365">Register interest</a>
+          </article>
+
+          <article class="student-course">
+            <div class="student-course-top">
+              <span class="path-level">Beginner</span>
+              <span class="student-course-code">AZ-900</span>
+            </div>
+            <h3>Azure fundamentals</h3>
+            <p>Understand cloud concepts and the building blocks behind Microsoft Azure, with beginner-friendly guided exploration.</p>
+            <p class="course-outline-title">Course outline</p>
+            <ol class="course-outline">
+              <li>Cloud concepts, service types, and deployment models</li>
+              <li>Azure regions, subscriptions, and resource groups</li>
+              <li>Core compute, networking, and storage services</li>
+              <li>Identity, security, and shared responsibility</li>
+              <li>Governance, cost management, and service support</li>
+              <li>Explore the Azure portal and review key concepts</li>
+            </ol>
+            <a class="button button-secondary" href="https://t.me/Sala365Bot?start=student-azure">Register interest</a>
+          </article>
+
+          <article class="student-course">
+            <div class="student-course-top">
+              <span class="path-level">Beginner</span>
+              <span class="student-course-code">SC-900</span>
+            </div>
+            <h3>Security, identity &amp; compliance</h3>
+            <p>Learn essential security and identity concepts for safer study, work, and responsible use of technology.</p>
+            <p class="course-outline-title">Course outline</p>
+            <ol class="course-outline">
+              <li>Security principles and shared responsibility</li>
+              <li>Identity, authentication, and access management</li>
+              <li>Microsoft security tools and threat protection</li>
+              <li>Data protection, privacy, and compliance basics</li>
+              <li>Apply good security habits to everyday scenarios</li>
+              <li>Review core topics and certification concepts</li>
+            </ol>
+            <a class="button button-secondary" href="https://t.me/Sala365Bot?start=student-security">Register interest</a>
+          </article>
+        </div>
+
+        <div class="student-register" id="student-registration">
+          <div>
+            <p class="eyebrow">Student registration</p>
+            <h3>Choose a course to get started.</h3>
+            <p>Select a course to open a Telegram chat with SALA365. Ask about upcoming dates and student pricing, then share your details directly with our team. These are independent SALA365 courses, not an official Microsoft student program.</p>
+          </div>
+          <form class="student-register-form" action="https://t.me/Sala365Bot" method="get" target="_blank">
+            <label for="student-course">Course of interest
+              <select id="student-course" name="start" required>
+                <option value="student-m365">Microsoft 365 for study</option>
+                <option value="student-azure">Azure fundamentals</option>
+                <option value="student-security">Security, identity &amp; compliance</option>
+              </select>
+            </label>
+            <button class="button" type="submit">Continue to Telegram</button>
+          </form>
         </div>
       </div>
     </section>
