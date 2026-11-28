@@ -3,549 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="SALA365 is a technology academy and consulting center building practical skills in cloud, networking, cybersecurity, AI, and modern workplace technologies in Cambodia.">
-  <title>SALA365 | Technology Academy &amp; Consulting</title>
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="SALA365 helps people and organizations in Cambodia build practical technology skills and a confident digital future.">
+  <title>SALA365 | Practical technology learning for Cambodia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: light;
-      --green: #16784a;
-      --green-dark: #105b38;
-      --green-pale: #edf6f0;
-      --gold: #c99a2e;
-      --ink: #17231d;
-      --muted: #59665f;
-      --line: #e5ebe7;
-      --surface: #f7f9f7;
-      --white: #fff;
-      --radius: 18px;
-      --shadow: 0 18px 50px rgba(24, 54, 37, .08);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-    body {
-      margin: 0;
-      background: var(--white);
-      color: var(--ink);
-      font-family: "Ubuntu", sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    button { font: inherit; }
-    img { max-width: 100%; }
-    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin: 0 0 16px;
-      color: var(--green);
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before {
-      width: 22px;
-      height: 2px;
-      background: var(--gold);
-      content: "";
-    }
-    h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 {
-      font-family: "Ubuntu", sans-serif;
-      letter-spacing: -.035em;
-      line-height: 1.15;
-    }
-    h1 { font-size: clamp(2.55rem, 6vw, 4.5rem); }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); }
-    h3 { font-size: 1.2rem; }
-    .section { padding: 88px 0; }
-    .section-heading { max-width: 650px; margin: 0 auto 44px; text-align: center; }
-    .section-heading p { margin-bottom: 0; color: var(--muted); font-size: 1.05rem; }
-    .button {
-      display: inline-flex;
-      min-height: 48px;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 20px;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      background: var(--green);
-      color: var(--white);
-      font-weight: 700;
-      text-decoration: none;
-      transition: background .2s ease, transform .2s ease, border-color .2s ease;
-    }
-    .button:hover { transform: translateY(-2px); background: var(--green-dark); }
-    .button:focus-visible, a:focus-visible, button:focus-visible {
-      outline: 3px solid rgba(201, 154, 46, .75);
-      outline-offset: 3px;
-    }
-    .button-secondary {
-      border-color: #cbd8cf;
-      background: var(--white);
-      color: var(--green-dark);
-    }
-    .button-secondary:hover { border-color: var(--green); background: var(--green-pale); }
-    .arrow { width: 17px; height: 17px; flex: none; }
-
-    /* Navigation */
-    .site-header {
-      position: sticky;
-      z-index: 20;
-      top: 0;
-      border-bottom: 1px solid rgba(229, 235, 231, .85);
-      background: rgba(255, 255, 255, .94);
-      backdrop-filter: blur(14px);
-    }
-    .nav {
-      display: flex;
-      min-height: 76px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand { display: inline-flex; align-items: center; text-decoration: none; }
-    .brand img { display: block; width: 145px; height: auto; }
-    .nav-links { display: flex; align-items: center; gap: 30px; }
-    .nav-links a {
-      color: #36453c;
-      font-size: .92rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .nav-links a:hover { color: var(--green); }
-    .nav-cta { min-height: 42px; padding: 9px 16px; font-size: .9rem; }
-    .menu-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-      color: var(--ink);
-      cursor: pointer;
-    }
-    .menu-toggle svg { width: 22px; height: 22px; }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 88px 0 82px;
-      background:
-        radial-gradient(ellipse at 86% 20%, rgba(201, 154, 46, .09), transparent 30%),
-        radial-gradient(ellipse at 78% 85%, rgba(22, 120, 74, .08), transparent 34%),
-        linear-gradient(180deg, #fff 0%, #fbfcfb 100%);
-    }
-    .hero-grid { display: grid; align-items: center; gap: 50px; grid-template-columns: 1.1fr .9fr; }
-    .hero-copy { max-width: 640px; }
-    .hero h1 { margin-bottom: 22px; }
-    .hero h1 span { color: var(--green); }
-    .hero-copy > p:not(.eyebrow) { max-width: 570px; margin-bottom: 28px; color: var(--muted); font-size: 1.12rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .hero-note { display: flex; align-items: center; gap: 10px; margin: 25px 0 0; color: var(--muted); font-size: .88rem; }
-    .check-mark {
-      display: inline-grid;
-      width: 22px;
-      height: 22px;
-      flex: none;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--green-pale);
-      color: var(--green);
-      font-size: .8rem;
-      font-weight: 800;
-    }
-    .hero-visual {
-      position: relative;
-      min-height: 390px;
-      display: grid;
-      place-items: center;
-    }
-    .visual-orbit {
-      position: absolute;
-      width: min(390px, 90%);
-      aspect-ratio: 1;
-      border: 1px solid #e7eee9;
-      border-radius: 50%;
-    }
-    .visual-orbit::before, .visual-orbit::after {
-      position: absolute;
-      border: 1px solid #edf1ed;
-      border-radius: 50%;
-      content: "";
-    }
-    .visual-orbit::before { inset: 30px; }
-    .visual-orbit::after { inset: 62px; }
-    .learning-card {
-      position: relative;
-      z-index: 1;
-      width: min(340px, 85%);
-      padding: 28px;
-      border: 1px solid #edf0ed;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, .95);
-      box-shadow: var(--shadow);
-    }
-    .learning-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; }
-    .learning-label { color: var(--muted); font-size: .8rem; font-weight: 600; }
-    .brand-mark { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 10px; background: var(--green-pale); color: var(--green); }
-    .brand-mark svg { width: 21px; height: 21px; }
-    .learning-card h2 { margin-bottom: 7px; font-size: 1.55rem; }
-    .learning-card > p { margin-bottom: 24px; color: var(--muted); font-size: .9rem; }
-    .progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--muted); font-size: .76rem; }
-    .progress-track { height: 7px; overflow: hidden; border-radius: 9px; background: #e9eee9; }
-    .progress-value { width: 72%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--green), #55a675); }
-    .floating-tag {
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 12px 15px;
-      border: 1px solid #edf0ed;
-      border-radius: 11px;
-      background: var(--white);
-      box-shadow: 0 10px 28px rgba(24, 54, 37, .08);
-      font-size: .82rem;
-      font-weight: 700;
-    }
-    .floating-tag .check-mark { width: 25px; height: 25px; }
-    .tag-one { top: 12%; right: 0; }
-    .tag-two { bottom: 12%; left: 0; }
-    .gold-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
-
-    /* Trust */
-    .trust { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .trust-item { display: flex; align-items: center; justify-content: center; gap: 12px; color: #35443b; font-weight: 700; }
-    .trust-icon { display: grid; width: 38px; height: 38px; flex: none; place-items: center; border-radius: 10px; background: var(--green-pale); color: var(--green); }
-    .trust-icon svg { width: 19px; height: 19px; }
-
-    /* Training categories */
-    .categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .category-card {
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--white);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-    .category-card:hover { transform: translateY(-4px); border-color: #c9ddcf; box-shadow: var(--shadow); }
-    .category-icon { display: grid; width: 48px; height: 48px; margin-bottom: 22px; place-items: center; border-radius: 13px; background: var(--green-pale); color: var(--green); }
-    .category-icon.gold { background: #fbf5e8; color: #9c741b; }
-    .category-icon svg { width: 24px; height: 24px; }
-    .category-card h3 { margin-bottom: 9px; }
-    .category-card p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
-
-    /* Certification paths */
-    .paths { background: var(--surface); }
-    .paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .path-card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
-    .path-level { display: inline-block; margin-bottom: 16px; padding: 5px 10px; border-radius: 99px; background: var(--green-pale); color: var(--green-dark); font-size: .73rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-    .path-card h3 { margin-bottom: 10px; }
-    .path-card p { min-height: 52px; margin-bottom: 18px; color: var(--muted); font-size: .9rem; }
-    .path-exams { display: flex; flex-wrap: wrap; gap: 8px; }
-    .path-exams span { padding: 6px 9px; border: 1px solid var(--line); border-radius: 6px; color: #435148; font-size: .76rem; font-weight: 700; }
-
-    /* Student learning */
-    .students { background: var(--surface); }
-    .student-courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .student-course {
-      display: flex;
-      flex-direction: column;
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--white);
-    }
-    .student-course-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-    .student-course-top .path-level { margin: 0; }
-    .student-course-code { color: var(--muted); font-size: .76rem; font-weight: 700; }
-    .student-course h3 { margin-bottom: 9px; }
-    .student-course > p { margin-bottom: 18px; color: var(--muted); font-size: .91rem; }
-    .course-outline-title { margin: 0 0 10px; font-size: .86rem; font-weight: 700; }
-    .course-outline { display: grid; gap: 8px; margin: 0 0 22px; padding-left: 20px; color: var(--muted); font-size: .86rem; }
-    .student-course-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
-    .student-register {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 28px;
-      margin-top: 28px;
-      padding: clamp(24px, 4vw, 36px);
-      border: 1px solid #e1ebe3;
-      border-radius: 18px;
-      background: #f2f7f3;
-    }
-    .student-register h3 { margin-bottom: 8px; }
-    .student-register p { max-width: 650px; margin-bottom: 0; color: var(--muted); font-size: .92rem; }
-    /* Corporate training */
-    .corporate-panel {
-      display: grid;
-      overflow: hidden;
-      grid-template-columns: 1fr 1fr;
-      border-radius: 22px;
-      background: #f2f7f3;
-    }
-    .corporate-copy { padding: clamp(28px, 6vw, 58px); }
-    .corporate-copy h2 { margin-bottom: 16px; }
-    .corporate-copy > p:not(.eyebrow) { margin-bottom: 25px; color: var(--muted); }
-    .corporate-features { display: grid; gap: 13px; margin: 0 0 28px; padding: 0; list-style: none; }
-    .corporate-features li { display: flex; align-items: flex-start; gap: 10px; color: #36453c; font-weight: 600; }
-    .corporate-art {
-      position: relative;
-      display: grid;
-      min-height: 340px;
-      place-items: center;
-      overflow: hidden;
-      background: linear-gradient(145deg, #176f45, #105b38);
-    }
-    .corporate-art::before, .corporate-art::after {
-      position: absolute;
-      width: 290px;
-      height: 290px;
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 50%;
-      content: "";
-    }
-    .corporate-art::before { transform: translate(-28px, 20px); }
-    .corporate-art::after { width: 210px; height: 210px; transform: translate(-28px, 20px); }
-    .team-card {
-      position: relative;
-      z-index: 1;
-      width: min(290px, 82%);
-      padding: 24px;
-      border: 1px solid rgba(255, 255, 255, .28);
-      border-radius: 15px;
-      background: rgba(255, 255, 255, .95);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .15);
-    }
-    .team-card .eyebrow { margin-bottom: 12px; font-size: .68rem; }
-    .team-card h3 { margin-bottom: 18px; font-size: 1.25rem; }
-    .team-row { display: flex; align-items: center; gap: 11px; padding: 11px 0; border-top: 1px solid var(--line); font-size: .84rem; font-weight: 600; }
-    .team-row span:first-child { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 8px; background: var(--green-pale); color: var(--green); }
-
-    /* Contact */
-    .contact-section { padding-top: 84px; }
-    .contact-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-      padding: clamp(28px, 5vw, 48px);
-      border: 1px solid #e8eee9;
-      border-radius: 20px;
-      background: linear-gradient(110deg, #f7faf7, #fff);
-    }
-    .contact-card h2 { margin-bottom: 10px; font-size: clamp(1.8rem, 4vw, 2.5rem); }
-    .contact-card p { max-width: 570px; margin-bottom: 0; color: var(--muted); }
-
-    /* Footer */
-    .site-footer { margin-top: 88px; padding: 32px 0; border-top: 1px solid var(--line); }
-    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand img { width: 125px; }
-    .footer-note { margin: 0; color: var(--muted); font-size: .84rem; }
-    .footer-links { display: flex; gap: 18px; }
-    .footer-links a { color: var(--muted); font-size: .84rem; text-decoration: none; }
-    .footer-links a:hover { color: var(--green); }
-
-    @media (max-width: 860px) {
-      .nav-links { gap: 18px; }
-      .hero-grid { gap: 25px; grid-template-columns: 1fr  .85fr; }
-      .hero-visual { min-height: 340px; }
-      .categories-grid, .paths-grid, .student-courses-grid { grid-template-columns: repeat(2, 1fr); }
-      .category-card:last-child, .path-card:last-child, .student-course:last-child { grid-column: span 2; }
-      .student-register { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 960px) {
-      .nav { min-height: 68px; }
-      .brand img { width: 128px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-links {
-        position: absolute;
-        top: calc(100% + 1px);
-        right: 0;
-        left: 0;
-        display: none;
-        align-items: stretch;
-        gap: 0;
-        padding: 10px 16px 18px;
-        border-bottom: 1px solid var(--line);
-        background: var(--white);
-      }
-      .nav-links.is-open { display: flex; flex-direction: column; }
-      .nav-links a:not(.button) { padding: 12px 4px; border-bottom: 1px solid #f0f3f0; }
-      .nav-links .nav-cta { margin-top: 12px; }
-    }
-    @media (max-width: 680px) {
-      html { scroll-padding-top: 72px; }
-      .container { width: min(100% - 32px, 520px); }
-      .section { padding: 66px 0; }
-      .nav { min-height: 68px; }
-      .brand img { width: 128px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-links {
-        position: absolute;
-        top: calc(100% + 1px);
-        right: 0;
-        left: 0;
-        display: none;
-        align-items: stretch;
-        gap: 0;
-        padding: 10px 16px 18px;
-        border-bottom: 1px solid var(--line);
-        background: var(--white);
-      }
-      .nav-links.is-open { display: flex; flex-direction: column; }
-      .nav-links a:not(.button) { padding: 12px 4px; border-bottom: 1px solid #f0f3f0; }
-      .nav-links .nav-cta { margin-top: 12px; }
-      .hero { padding: 64px 0 45px; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-copy { text-align: center; }
-      .hero-copy > p:not(.eyebrow) { margin-inline: auto; }
-      .hero-actions, .hero-note { justify-content: center; }
-      .hero-visual { min-height: 330px; }
-      .tag-one { right: 2%; }
-      .tag-two { left: 2%; }
-      .trust-row { grid-template-columns: 1fr; gap: 16px; }
-      .trust-item { justify-content: flex-start; }
-      .categories-grid, .paths-grid, .student-courses-grid { grid-template-columns: 1fr; }
-      .category-card:last-child, .path-card:last-child, .student-course:last-child { grid-column: auto; }
-      .path-card p { min-height: 0; }
-      .corporate-panel { grid-template-columns: 1fr; }
-      .corporate-art { min-height: 300px; }
-      .contact-card { align-items: flex-start; flex-direction: column; }
-      .footer-row { align-items: flex-start; flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-    }
-    /* Academy homepage */
-    .section-heading.align-left { margin-inline: 0; text-align: left; }
-    .section-heading.align-left > p:last-child { max-width: 680px; }
-    .section-soft { background: var(--surface); }
-    .hero { padding-block: 92px; }
-    .hero h1 { max-width: 700px; }
-    .hero h1 span { color: var(--green); }
-    .hero-visual { min-height: 430px; }
-    .learning-card { border-top: 4px solid var(--gold); }
-    .learning-card h2 { font-size: 1.65rem; }
-    .hero-stat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
-    .hero-stat { padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
-    .hero-stat strong { display: block; color: var(--green); font-size: 1.1rem; }
-    .hero-stat span { color: var(--muted); font-size: .78rem; }
-    .vision-grid, .ecosystem-grid, .training-grid, .roadmap-grid, .partner-grid, .service-grid, .pricing-grid {
-      display: grid; gap: 18px;
-    }
-    .vision-grid { grid-template-columns: 1fr 1fr; }
-    .vision-card, .ecosystem-card, .roadmap-card, .partner-card, .service-card, .price-card {
-      padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white);
-    }
-    .vision-card { border-top: 3px solid var(--green); }
-    .vision-card:nth-child(2) { border-top-color: var(--gold); }
-    .vision-card h3, .ecosystem-card h3, .roadmap-card h3, .partner-card h3, .service-card h3, .price-card h3 { margin-bottom: 10px; }
-    .vision-card p, .ecosystem-card p, .roadmap-card p, .partner-card p, .service-card p, .price-card p { margin: 0; color: var(--muted); font-size: .92rem; }
-    .ecosystem-grid { grid-template-columns: repeat(3, 1fr); }
-    .ecosystem-card { position: relative; overflow: hidden; min-height: 195px; }
-    .ecosystem-card::after { position: absolute; right: -24px; bottom: -38px; width: 110px; height: 110px; border: 1px solid #e8efe9; border-radius: 50%; content: ""; }
-    .ecosystem-kicker { display: block; margin-bottom: 16px; color: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .ecosystem-card:nth-child(3n + 2) .ecosystem-kicker { color: #94701e; }
-    .ecosystem-note { margin: 20px 0 0; color: var(--muted); font-size: .8rem; }
-    .audience-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 34px; }
-    .audience-strip span, .path-exams span { padding: 8px 12px; border: 1px solid var(--line); border-radius: 99px; background: var(--white); color: var(--ink); font-size: .82rem; font-weight: 600; }
-    .training-grid { grid-template-columns: repeat(3, 1fr); }
-    .training-grid .category-card { min-height: 210px; }
-    .path-card { box-shadow: 0 8px 24px rgba(24, 54, 37, .035); }
-    .path-card p { min-height: 72px; }
-    .roadmap-grid { grid-template-columns: repeat(4, 1fr); }
-    .roadmap-card { position: relative; padding-top: 32px; }
-    .roadmap-step { display: inline-flex; margin-bottom: 18px; padding: 6px 10px; border-radius: 99px; background: var(--green-pale); color: var(--green-dark); font-size: .75rem; font-weight: 700; }
-    .roadmap-card:nth-child(even) .roadmap-step { background: #fbf5e8; color: #86651b; }
-    .roadmap-card p { margin-bottom: 14px; }
-    .roadmap-card ul, .service-card ul { display: grid; gap: 7px; margin: 0; padding-left: 18px; color: var(--muted); font-size: .84rem; }
-    .partner-panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: 35px; align-items: center; padding: clamp(26px, 5vw, 48px); border-radius: 20px; background: var(--surface); }
-    .partner-panel h2 { margin-bottom: 14px; }
-    .partner-panel > div > p:not(.eyebrow) { color: var(--muted); }
-    .partner-grid { grid-template-columns: 1fr 1fr; }
-    .partner-card { padding: 20px; }
-    .partner-card h3 { font-size: 1rem; }
-    .service-grid { grid-template-columns: repeat(3, 1fr); }
-    .service-card { min-height: 180px; }
-    .pricing-grid { grid-template-columns: repeat(3, 1fr); }
-    .price-card { display: flex; flex-direction: column; min-height: 265px; }
-    .price-card.featured { border: 2px solid var(--green); box-shadow: var(--shadow); }
-    .price-card .path-level { align-self: flex-start; }
-    .price-card .button { align-self: flex-start; margin-top: auto; }
-    .price-card p { margin-bottom: 22px; }
-    .pricing-note { margin: 22px 0 0; color: var(--muted); font-size: .85rem; text-align: center; }
-    .registration-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 0; padding: 0; list-style: none; }
-    .registration-flow li { position: relative; padding: 0 20px; text-align: center; }
-    .registration-flow li:not(:last-child)::after { position: absolute; top: 24px; left: calc(50% + 28px); width: calc(100% - 56px); height: 1px; background: #d7e3da; content: ""; }
-    .flow-number { position: relative; z-index: 1; display: grid; width: 48px; height: 48px; margin: 0 auto 15px; place-items: center; border: 1px solid #cfe0d4; border-radius: 50%; background: var(--white); color: var(--green); font-weight: 700; }
-    .registration-flow h3 { margin-bottom: 6px; font-size: 1rem; }
-    .registration-flow p { margin: 0; color: var(--muted); font-size: .82rem; }
-    .flow-bot-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
-    .flow-bot-menu span { padding: 9px 13px; border: 1px solid var(--line); border-radius: 9px; background: var(--white); font-size: .85rem; font-weight: 600; }
-    .contact-details { display: flex; flex-wrap: wrap; gap: 18px 28px; margin-top: 18px; }
-    .contact-details a { color: var(--green-dark); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    .contact-card { align-items: flex-start; }
-    .contact-card > div { max-width: 700px; }
-    @media (max-width: 860px) {
-      .ecosystem-grid, .training-grid, .roadmap-grid, .service-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-      .partner-panel { grid-template-columns: 1fr; }
-      .registration-flow { grid-template-columns: repeat(2, 1fr); gap: 28px 0; }
-      .registration-flow li::after { display: none; }
-    }
-    @media (max-width: 680px) {
-      .hero { padding: 62px 0 40px; }
-      .hero-copy { text-align: left; }
-      .hero-copy > p:not(.eyebrow) { margin-inline: 0; }
-      .hero-actions, .hero-note { justify-content: flex-start; }
-      .hero-visual { min-height: 310px; }
-      .vision-grid, .ecosystem-grid, .training-grid, .roadmap-grid, .partner-grid, .service-grid, .pricing-grid { grid-template-columns: 1fr; }
-      .registration-flow { grid-template-columns: 1fr; gap: 22px; }
-      .registration-flow li { display: grid; grid-template-columns: 48px 1fr; gap: 0 14px; align-items: center; padding: 0; text-align: left; }
-      .flow-number { grid-row: span 2; margin: 0; }
-      .registration-flow li:not(:last-child)::after { display: block; top: 55px; left: 23px; width: 1px; height: 18px; }
-      .registration-flow h3 { align-self: end; }
-      .registration-flow p { align-self: start; }
-      .contact-details { flex-direction: column; gap: 8px; }
-    }
-  </style>
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#home" aria-label="SALA365 home">
-        <img src="logo.png" alt="SALA365">
+        <img src="/logo.png" alt="SALA365">
       </a>
-
       <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
         </svg>
       </button>
-
       <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#training">Training</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#about">About</a>
+        <a href="#mission">Our purpose</a>
+        <a href="#pathways">Learning pathways</a>
+        <a href="#organizations">For organizations</a>
         <a href="#contact">Contact</a>
-        <a class="button nav-cta" href="#registration">Get started</a>
+        <a class="button nav-cta" href="#courses">Explore courses</a>
       </nav>
     </div>
   </header>
@@ -554,466 +36,197 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Technology Academy &amp; Consulting Center</p>
-          <h1>Build the skills to <span>shape what’s next.</span></h1>
-          <p>
-            From networking and cloud to cybersecurity and AI, SALA365 helps
-            Cambodia’s learners and organizations turn technology into real-world capability.
-          </p>
+          <p class="eyebrow">Technology learning &amp; consulting · Cambodia</p>
+          <h1>Build skills.<br><span>Open possibilities.</span></h1>
+          <p class="hero-description">We help learners and organizations turn technology into practical capability—so more people can shape Cambodia’s digital future.</p>
           <div class="hero-actions">
-            <a class="button" href="#training">
-              Explore learning pathways
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
+            <a class="button" href="#courses">
+              Find your next step
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </a>
-            <a class="button button-secondary" href="#corporate">Build team capability</a>
+            <a class="button button-secondary" href="#organizations">Work with SALA365</a>
           </div>
-          <p class="hero-note"><span class="check-mark" aria-hidden="true">✓</span> Practical learning. Industry-aligned pathways. Local impact.</p>
-          <div class="hero-stat-list" aria-label="SALA365 learning focus">
-            <div class="hero-stat"><strong>Learn</strong><span>Build practical foundations</span></div>
-            <div class="hero-stat"><strong>Apply</strong><span>Practice skills for real work</span></div>
-          </div>
+          <p class="hero-note"><span class="note-dot" aria-hidden="true"></span> Practical learning, grounded in real goals.</p>
         </div>
+        <div class="hero-visual" aria-label="SALA365 approach: learn, practice, progress">
+          <div class="visual-orbit orbit-one"></div>
+          <div class="visual-orbit orbit-two"></div>
+          <div class="hero-card">
+            <span class="card-kicker">Your next chapter starts here</span>
+            <div class="journey-step"><span>01</span><div><strong>Learn</strong><small>Build a strong foundation</small></div></div>
+            <div class="journey-step"><span>02</span><div><strong>Practice</strong><small>Apply skills to real work</small></div></div>
+            <div class="journey-step"><span>03</span><div><strong>Progress</strong><small>Grow with confidence</small></div></div>
+            <div class="card-mark" aria-hidden="true">S</div>
+          </div>
+          <span class="floating-note">Skills for a digital future <span aria-hidden="true">↗</span></span>
+        </div>
+      </div>
+      <div class="hero-glow" aria-hidden="true"></div>
+    </section>
 
-        <div class="hero-visual" aria-hidden="true">
-          <div class="visual-orbit"></div>
-          <div class="learning-card">
-            <div class="learning-card-top">
-              <span class="learning-label">Technology for every ambition</span>
-              <span class="brand-mark">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M4 19V9l8-5 8 5v10M9 19v-6h6v6M3 19h18" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </span>
-            </div>
-            <h2>Learn. Practice. Progress.</h2>
-            <p>Choose a pathway that connects your goals to the skills employers need.</p>
-            <div class="progress-label"><span>Your next skill</span><span>Start today</span></div>
-            <div class="progress-track"><div class="progress-value"></div></div>
-          </div>
-          <div class="floating-tag tag-one"><span class="check-mark">✓</span> Career-connected learning</div>
-          <div class="floating-tag tag-two"><span class="gold-dot"></span> Cambodia-focused</div>
-        </div>
+    <section class="principles" aria-label="What guides our work">
+      <div class="container principles-row">
+        <span>Learning with purpose</span>
+        <span>Skills for real work</span>
+        <span>Opportunity for everyone</span>
       </div>
     </section>
 
-    <section class="trust" aria-label="Our approach">
-      <div class="container trust-row">
-        <div class="trust-item">
-          <span class="trust-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z" stroke-linejoin="round"></path><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </span>
-          Learning with purpose
+    <section class="section purpose-section" id="mission">
+      <div class="container purpose-layout">
+        <div class="section-intro">
+          <p class="eyebrow">Why SALA365</p>
+          <h2>A stronger digital future starts with people.</h2>
+          <p>Technology moves quickly. We make learning clearer, more practical, and connected to the opportunities that matter in Cambodia.</p>
         </div>
-        <div class="trust-item">
-          <span class="trust-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </span>
-          Skills for the real world
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a6 6 0 0 1 12 0v1M16 5.2a3 3 0 0 1 0 5.6M18 14a5 5 0 0 1 3 4.6V20" stroke-linecap="round"></path></svg>
-          </span>
-          Support for every learner
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="about">
-      <div class="container">
-        <div class="section-heading align-left">
-          <p class="eyebrow">About SALA365</p>
-          <h2>Technology education built for opportunity.</h2>
-          <p>We connect accessible learning with the practical capabilities people and organizations need to participate in a changing digital economy.</p>
-        </div>
-        <div class="vision-grid">
-          <article class="vision-card">
-            <h3>Our vision</h3>
-            <p>To help build a confident, capable technology workforce and a thriving digital future for Cambodia.</p>
+        <div class="purpose-cards">
+          <article class="purpose-card">
+            <span class="card-index">01 / VISION</span>
+            <h3>A confident, capable technology workforce.</h3>
+            <p>We envision a thriving digital future for Cambodia, shaped by people who can learn, build, and lead.</p>
           </article>
-          <article class="vision-card">
-            <h3>Our mission</h3>
-            <p>To make relevant technology learning and consulting practical, inclusive, and connected to real study, work, and organizational needs.</p>
+          <article class="purpose-card purpose-card-accent">
+            <span class="card-index">02 / MISSION</span>
+            <h3>Make relevant technology learning practical and inclusive.</h3>
+            <p>We connect education and consulting to real study, work, and organizational needs.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="ecosystem">
+    <section class="section pathways-section" id="pathways">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Technology ecosystem</p>
-          <h2>One academy. Many technology pathways.</h2>
-          <p>Explore foundational and advanced learning across the platforms and disciplines shaping modern work.</p>
+          <p class="eyebrow">Learning pathways</p>
+          <h2>Start where you are. Build what’s next.</h2>
+          <p>Focused pathways help learners and teams build useful skills step by step.</p>
         </div>
-        <div class="ecosystem-grid">
-          <article class="ecosystem-card"><span class="ecosystem-kicker">Productivity · Cloud · Workplace</span><h3>Microsoft Technologies</h3><p>Microsoft 365, Azure, identity, security, and modern workplace skills.</p></article>
-          <article class="ecosystem-card"><span class="ecosystem-kicker">Networking · Infrastructure</span><h3>Cisco Networking Academy</h3><p>Explore networking foundations, routing, switching, and network operations through available Academy pathways.</p></article>
-          <article class="ecosystem-card"><span class="ecosystem-kicker">Linux · Automation · Containers</span><h3>Red Hat Academy</h3><p>Build Linux administration, automation, and open hybrid cloud foundations through available learning pathways.</p></article>
-          <article class="ecosystem-card"><span class="ecosystem-kicker">Defend · Respond · Govern</span><h3>Cybersecurity</h3><p>Security fundamentals, defensive practices, risk awareness, and incident readiness.</p></article>
-          <article class="ecosystem-card"><span class="ecosystem-kicker">Understand · Build · Apply</span><h3>Artificial intelligence</h3><p>AI literacy, responsible use, and practical ways to apply AI at work.</p></article>
-          <article class="ecosystem-card"><span class="ecosystem-kicker">Cloud foundations · Operations</span><h3>Cloud computing</h3><p>Core cloud concepts, architectures, operations, and career-ready fundamentals.</p></article>
-        </div>
-        <p class="ecosystem-note">Official academy status, course availability, and certification preparation depend on current provider requirements and local offerings. SALA365 does not imply official provider endorsement unless explicitly stated for a specific program.</p>
-      </div>
-    </section>
-
-    <section class="section" id="training">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Training categories</p>
-          <h2>Learn what moves your goals forward.</h2>
-          <p>Choose a focused course, build a certification pathway, or shape a learning program for your organization.</p>
-        </div>
-
-        <div class="categories-grid">
-          <article class="category-card">
-            <div class="category-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4M7 8h4m-4 4h8" stroke-linecap="round"></path></svg>
-            </div>
-            <h3>Digital productivity</h3>
-            <p>Build confidence with collaboration, workplace tools, digital workflows, and Microsoft 365.</p>
+        <div class="pathway-grid">
+          <article class="pathway-card">
+            <span class="pathway-number">01</span>
+            <div class="pathway-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 18V8l7-4 7 4v10M9 18v-6h6v6M3 18h18" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <h3>Cloud &amp; modern work</h3>
+            <p>Cloud foundations, Microsoft 365, collaboration, and digital productivity.</p>
           </article>
-
-          <article class="category-card">
-            <div class="category-icon gold">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z" stroke-linejoin="round"></path><path d="M9 12h6m-3-3v6" stroke-linecap="round"></path></svg>
-            </div>
-            <h3>Cloud computing</h3>
-            <p>Understand cloud foundations, service models, core platforms, and operational practices.</p>
-          </article>
-
-          <article class="category-card">
-            <div class="category-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8 9h8M8 13h5M8 17h3" stroke-linecap="round"></path></svg>
-            </div>
-            <h3>Cybersecurity</h3>
-            <p>Learn security principles, identity protection, threat awareness, and defensive operations.</p>
-          </article>
-
-          <article class="category-card">
-            <div class="category-icon gold">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h16v12H4zM8 21h8m-4-4v4M8 9h3m-3 4h8m-3-4h3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </div>
-            <h3>Artificial intelligence &amp; data</h3>
-            <p>Explore responsible AI, data literacy, reporting, and technology-enabled decision making.</p>
-          </article>
-
-          <article class="category-card">
-            <div class="category-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M7 21h10m-5-4v4M8 9l-2 2 2 2m8-4 2 2-2 2m-4-3-1 2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </div>
+          <article class="pathway-card">
+            <span class="pathway-number">02</span>
+            <div class="pathway-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8 9h8M8 13h5M8 17h3" stroke-linecap="round"></path></svg></div>
             <h3>Networking &amp; Linux</h3>
-            <p>Build infrastructure foundations in Cisco networking, Linux, systems, and technical support.</p>
+            <p>Build the infrastructure skills behind connected systems and services.</p>
           </article>
-
-          <article class="category-card">
-            <div class="category-icon gold">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="19" cy="6" r="1"></circle></svg>
-            </div>
-            <h3>Workforce development</h3>
-            <p>Map skills to roles, develop practical capability, and support technology adoption at work.</p>
+          <article class="pathway-card">
+            <span class="pathway-number">03</span>
+            <div class="pathway-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z" stroke-linejoin="round"></path><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <h3>Cybersecurity</h3>
+            <p>Understand security fundamentals, identity, risk, and defensive practice.</p>
+          </article>
+          <article class="pathway-card">
+            <span class="pathway-number">04</span>
+            <div class="pathway-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v3m0 12v3M4.6 4.6l2.1 2.1m10.6 10.6 2.1 2.1M3 12h3m12 0h3M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"></path><circle cx="12" cy="12" r="4"></circle></svg></div>
+            <h3>AI &amp; data</h3>
+            <p>Grow data literacy and learn to apply AI thoughtfully and responsibly.</p>
           </article>
         </div>
-        <div class="audience-strip" aria-label="Who we serve">
-          <span>University students</span><span>IT professionals</span><span>Government organizations</span><span>Enterprise teams</span><span>SMEs</span>
-        </div>
+        <p class="pathway-note">Learning can include guided practice, certification preparation, and tailored programs based on your goals.</p>
       </div>
     </section>
 
-    <section class="section updates-section" id="updates" hidden>
+    <section class="section courses-section" id="courses">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">From SALA365</p>
-          <h2>Fresh ideas and upcoming learning.</h2>
-          <p>Explore recent technology notes and find a course that fits your next step.</p>
-        </div>
-        <div class="updates-group" id="technology-updates" hidden>
-          <h3 class="updates-title">Technology</h3>
-          <div class="updates-grid" id="technology-list"></div>
-        </div>
-        <div class="updates-group" id="course-updates" hidden>
-          <h3 class="updates-title">Courses &amp; upcoming sessions</h3>
-          <div class="updates-grid" id="course-list"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section paths" id="paths">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Certification paths</p>
-          <h2>A clear route from learning to certification.</h2>
-          <p>Build from fundamentals to applied practice and exam preparation across technology disciplines.</p>
-        </div>
-
-        <div class="paths-grid">
-          <article class="path-card">
-            <span class="path-level">Start here</span>
-            <h3>Fundamentals</h3>
-            <p>Build shared technology vocabulary and confidence before choosing a specialist direction.</p>
-            <div class="path-exams"><span>Microsoft fundamentals</span><span>Networking basics</span><span>Linux essentials</span></div>
-          </article>
-
-          <article class="path-card">
-            <span class="path-level">Build expertise</span>
-            <h3>Cloud &amp; infrastructure</h3>
-            <p>Practice the skills needed to support networks, Linux systems, and cloud environments.</p>
-            <div class="path-exams"><span>Azure</span><span>Cisco networking</span><span>Red Hat Linux</span></div>
-          </article>
-
-          <article class="path-card">
-            <span class="path-level">Specialize</span>
-            <h3>Security &amp; emerging technology</h3>
-            <p>Specialize in defensive security, responsible AI, data, and modern workplace solutions.</p>
-            <div class="path-exams"><span>Cybersecurity</span><span>AI literacy</span><span>Cloud security</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="roadmap">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Strategic roadmap</p>
-          <h2>Grow capability in clear, practical stages.</h2>
-          <p>A focused direction for expanding access, deepening hands-on learning, and connecting education to opportunity.</p>
-        </div>
-        <div class="roadmap-grid">
-          <article class="roadmap-card"><span class="roadmap-step">01 · Foundation</span><h3>Access &amp; awareness</h3><p>Make high-demand technology pathways easier to discover and begin.</p><ul><li>Foundational digital skills</li><li>Introductory technology sessions</li><li>Student and community access</li></ul></article>
-          <article class="roadmap-card"><span class="roadmap-step">02 · Practice</span><h3>Hands-on capability</h3><p>Turn core knowledge into confidence through guided practice.</p><ul><li>Labs and applied projects</li><li>Instructor-led learning</li><li>Skills-based assessment</li></ul></article>
-          <article class="roadmap-card"><span class="roadmap-step">03 · Credentials</span><h3>Career pathways</h3><p>Support learners as they prepare for recognized industry credentials.</p><ul><li>Certification preparation</li><li>Career pathway guidance</li><li>Professional development</li></ul></article>
-          <article class="roadmap-card"><span class="roadmap-step">04 · Ecosystem</span><h3>Partnership &amp; impact</h3><p>Collaborate with institutions and employers to grow local talent.</p><ul><li>University collaboration</li><li>Workforce programs</li><li>Regional knowledge sharing</li></ul></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="partnerships">
-      <div class="container">
-        <div class="partner-panel">
+        <div class="section-heading section-heading-row">
           <div>
-            <p class="eyebrow">University partnerships</p>
-            <h2>Bring industry-relevant learning closer to campus.</h2>
-            <p>We welcome conversations with universities and education providers interested in connecting academic learning with practical technology skills and career preparation.</p>
-            <a class="button" href="mailto:admin@sala365.com?subject=University%20partnership%20with%20SALA365">Explore a partnership</a>
+            <p class="eyebrow">Featured courses</p>
+            <h2>Make your next move practical.</h2>
           </div>
-          <div class="partner-grid">
-            <article class="partner-card"><h3>Co-designed learning</h3><p>Explore short courses, workshops, and complementary learning pathways.</p></article>
-            <article class="partner-card"><h3>Practical experiences</h3><p>Discuss labs, projects, demonstrations, and applied learning activities.</p></article>
-            <article class="partner-card"><h3>Faculty collaboration</h3><p>Share expertise and explore professional development opportunities.</p></article>
-            <article class="partner-card"><h3>Career connections</h3><p>Connect learners with skills relevant to evolving workforce needs.</p></article>
-          </div>
+          <p>Beginner-friendly examples for learners ready to grow their digital confidence.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section students" id="students">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Featured learner pathways</p>
-          <h2>Start with a course. Keep building your future.</h2>
-          <p>Explore current Microsoft-focused examples and ask us about other pathways in networking, Linux, cybersecurity, AI, and cloud.</p>
-        </div>
-
-        <div class="student-courses-grid">
-          <article class="student-course">
-            <div class="student-course-top">
-              <span class="path-level">Beginner</span>
-              <span class="student-course-code">Productivity</span>
-            </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <span class="course-label">Productivity · Beginner</span>
             <h3>Microsoft 365 for study</h3>
-            <p>Build confidence with Microsoft 365 tools for assignments, research, presentations, and group projects.</p>
-            <p class="course-outline-title">Course outline</p>
-            <ol class="course-outline">
-              <li>Set up OneDrive and organize study files</li>
-              <li>Create clear reports in Word</li>
-              <li>Use Excel formulas, tables, and charts</li>
-              <li>Design and deliver presentations in PowerPoint</li>
-              <li>Collaborate with Teams and Outlook</li>
-              <li>Apply the tools in a shared class project</li>
-            </ol>
-            <div class="student-course-actions">
-              <a class="button" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register Training</a>
-              <a class="button button-secondary" href="https://t.me/Sala365Bot?start=student-m365" target="_blank" rel="noopener noreferrer">Ask on Telegram</a>
+            <p>Use Word, Excel, PowerPoint, OneDrive, and collaboration tools to work smarter on your studies.</p>
+            <div class="course-actions">
+              <a class="button" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register training</a>
+              <a class="text-link" href="https://t.me/Sala365Bot?start=student-m365" target="_blank" rel="noopener noreferrer">Ask about this course <span aria-hidden="true">→</span></a>
             </div>
           </article>
-
-          <article class="student-course">
-            <div class="student-course-top">
-              <span class="path-level">Beginner</span>
-              <span class="student-course-code">AZ-900</span>
-            </div>
+          <article class="course-card">
+            <span class="course-label">Cloud · Beginner</span>
             <h3>Azure fundamentals</h3>
-            <p>Understand cloud concepts and the building blocks behind Microsoft Azure, with beginner-friendly guided exploration.</p>
-            <p class="course-outline-title">Course outline</p>
-            <ol class="course-outline">
-              <li>Cloud concepts, service types, and deployment models</li>
-              <li>Azure regions, subscriptions, and resource groups</li>
-              <li>Core compute, networking, and storage services</li>
-              <li>Identity, security, and shared responsibility</li>
-              <li>Governance, cost management, and service support</li>
-              <li>Explore the Azure portal and review key concepts</li>
-            </ol>
-            <div class="student-course-actions">
-              <a class="button" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register Training</a>
-              <a class="button button-secondary" href="https://t.me/Sala365Bot?start=student-azure" target="_blank" rel="noopener noreferrer">Ask on Telegram</a>
+            <p>Explore cloud concepts, core Azure services, security basics, and how cloud resources work.</p>
+            <div class="course-actions">
+              <a class="button" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register training</a>
+              <a class="text-link" href="https://t.me/Sala365Bot?start=student-azure" target="_blank" rel="noopener noreferrer">Ask about this course <span aria-hidden="true">→</span></a>
             </div>
           </article>
-
-          <article class="student-course">
-            <div class="student-course-top">
-              <span class="path-level">Beginner</span>
-              <span class="student-course-code">SC-900</span>
-            </div>
+          <article class="course-card">
+            <span class="course-label">Security · Beginner</span>
             <h3>Security, identity &amp; compliance</h3>
-            <p>Learn essential security and identity concepts for safer study, work, and responsible use of technology.</p>
-            <p class="course-outline-title">Course outline</p>
-            <ol class="course-outline">
-              <li>Security principles and shared responsibility</li>
-              <li>Identity, authentication, and access management</li>
-              <li>Microsoft security tools and threat protection</li>
-              <li>Data protection, privacy, and compliance basics</li>
-              <li>Apply good security habits to everyday scenarios</li>
-              <li>Review core topics and certification concepts</li>
-            </ol>
-            <div class="student-course-actions">
-              <a class="button" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register Training</a>
-              <a class="button button-secondary" href="https://t.me/Sala365Bot?start=student-security" target="_blank" rel="noopener noreferrer">Ask on Telegram</a>
+            <p>Learn essential security and identity concepts for safer study, work, and technology use.</p>
+            <div class="course-actions">
+              <a class="button" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register training</a>
+              <a class="text-link" href="https://t.me/Sala365Bot?start=student-security" target="_blank" rel="noopener noreferrer">Ask about this course <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
+        <div class="course-cta">
+          <p>Looking for a course or a learning path that’s right for you?</p>
+          <a class="button button-secondary" href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">Talk to SALA365</a>
+        </div>
+        <p class="course-disclaimer">These are independent SALA365 courses, not official Microsoft programs. Dates and availability are confirmed directly with SALA365.</p>
+      </div>
+    </section>
 
-        <div class="student-register" id="student-registration">
-          <div>
-            <p class="eyebrow">Student registration</p>
-            <h3>Ready to register for training?</h3>
-            <p>Complete the Microsoft Forms registration and select your course there. For questions about dates or student pricing, contact @Sala365Bot. These are independent SALA365 courses, not an official Microsoft student program.</p>
-          </div>
-          <div class="student-register-actions">
-            <a class="button" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register Training</a>
-            <a class="button button-secondary" href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">Open @Sala365Bot</a>
-          </div>
+    <section class="section organizations-section" id="organizations">
+      <div class="container organization-panel">
+        <div class="organization-copy">
+          <p class="eyebrow">For organizations</p>
+          <h2>Build capability around your mission.</h2>
+          <p>We work with universities, government, enterprises, and SMEs to make technology learning relevant to their people and priorities.</p>
+          <ul class="organization-list">
+            <li><span aria-hidden="true">✓</span> Role-based skills development</li>
+            <li><span aria-hidden="true">✓</span> Instructor-led learning and practical labs</li>
+            <li><span aria-hidden="true">✓</span> Technology adoption and consulting support</li>
+          </ul>
+          <a class="button" href="mailto:admin@sala365.com?subject=Let%27s%20work%20together%20-%20SALA365">Start a conversation</a>
+        </div>
+        <div class="organization-art" aria-hidden="true">
+          <span class="art-caption">Learning that moves people forward</span>
+          <div class="art-circle circle-large"></div>
+          <div class="art-circle circle-small"></div>
+          <div class="art-word">GROW<br>TOGETHER<span>.</span></div>
+          <span class="art-coordinate">SALA365 · CAMBODIA</span>
         </div>
       </div>
     </section>
 
-    <section class="section" id="corporate">
-      <div class="container">
-        <div class="corporate-panel">
-          <div class="corporate-copy">
-            <p class="eyebrow">Corporate training &amp; consulting</p>
-            <h2>Build the capability your organization needs.</h2>
-            <p>
-              Workforce development for government organizations, enterprises, and SMEs—shaped around
-              your people, technology environment, and priorities.
-            </p>
-            <ul class="corporate-features">
-              <li><span class="check-mark" aria-hidden="true">✓</span> Role-based training plans and skills needs discovery</li>
-              <li><span class="check-mark" aria-hidden="true">✓</span> Instructor-led workshops and practical labs</li>
-              <li><span class="check-mark" aria-hidden="true">✓</span> Technology consulting and adoption support</li>
-            </ul>
-            <a class="button" href="mailto:admin@sala365.com?subject=Corporate%20training%20inquiry">Discuss your organization’s goals</a>
-          </div>
-
-          <div class="corporate-art" aria-hidden="true">
-            <div class="team-card">
-              <p class="eyebrow">Workforce development</p>
-              <h3>Skills that scale<br>with your mission.</h3>
-              <div class="team-row"><span>01</span> Assess capability needs</div>
-              <div class="team-row"><span>02</span> Design the learning journey</div>
-              <div class="team-row"><span>03</span> Apply and measure progress</div>
-            </div>
-          </div>
+    <section class="section contact-section" id="contact">
+      <div class="container contact-panel">
+        <div>
+          <p class="eyebrow">Your next step</p>
+          <h2>Let’s build a more capable digital future.</h2>
+          <p>Tell us what you want to learn or what your organization is working toward.</p>
         </div>
-        <div class="service-grid" style="margin-top: 20px">
-          <article class="service-card"><h3>Government</h3><p>Digital skills and technology capability development aligned to public service priorities.</p></article>
-          <article class="service-card"><h3>Enterprise</h3><p>Scalable technical training and consulting for teams, functions, and transformation initiatives.</p></article>
-          <article class="service-card"><h3>SMEs</h3><p>Practical guidance to strengthen digital confidence, security awareness, and technology use.</p></article>
+        <div class="contact-actions">
+          <a class="button button-light" href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">Message us on Telegram</a>
+          <a class="contact-email" href="mailto:admin@sala365.com">admin@sala365.com</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="pricing">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Pricing &amp; engagement</p>
-          <h2>Clear scope before you commit.</h2>
-          <p>Training investment depends on the learning goals, audience, delivery format, and schedule. We’ll confirm a tailored proposal before work begins.</p>
-        </div>
-        <div class="pricing-grid">
-          <article class="price-card"><span class="path-level">Individuals</span><h3>Open courses</h3><p>Join a scheduled course or certification preparation cohort. Ask us about upcoming dates, fees, and any available student rates.</p><a class="button button-secondary" href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">Ask about a course</a></article>
-          <article class="price-card featured"><span class="path-level">Teams</span><h3>Custom training</h3><p>Get a learning plan designed around your team's roles, starting point, delivery preferences, and outcomes.</p><a class="button" href="mailto:admin@sala365.com?subject=Custom%20training%20inquiry">Request a proposal</a></article>
-          <article class="price-card"><span class="path-level">Organizations</span><h3>Consulting engagements</h3><p>Discuss scoped advisory support for workforce capability, technology adoption, and learning strategy.</p><a class="button button-secondary" href="mailto:admin@sala365.com?subject=Consulting%20inquiry">Discuss your needs</a></article>
-        </div>
-        <p class="pricing-note">No fixed prices are published here. Final fees and scope are confirmed directly with SALA365.</p>
-      </div>
-    </section>
-
-    <section class="section" id="registration">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Registration</p>
-          <h2>A simple path from interest to follow-up.</h2>
-          <p>Start on the website, talk with our Telegram bot, and submit your details through the official registration form.</p>
-        </div>
-        <ol class="registration-flow" aria-label="SALA365 registration process">
-          <li><span class="flow-number">01</span><h3>Website</h3><p>Choose a course or learning pathway.</p></li>
-          <li><span class="flow-number">02</span><h3>Telegram bot</h3><p>Ask a question or get registration guidance.</p></li>
-          <li><span class="flow-number">03</span><h3>Microsoft Forms</h3><p>Submit your training interest securely.</p></li>
-          <li><span class="flow-number">04</span><h3>Power Automate</h3><p>Process form responses and send workflow notifications.</p></li>
-          <li><span class="flow-number">05</span><h3>SALA365 team</h3><p>Notifications are intended for admin@sala365.com.</p></li>
-        </ol>
-        <div class="flow-bot-menu" aria-label="Telegram bot menu">
-          <span>🎓 Register</span><span>📚 Courses</span><span>💰 Pricing</span><span>ℹ️ Information</span>
-        </div>
-        <p class="ecosystem-note" style="text-align: center">The bot guides learners to the form; it does not collect or submit registration details. Email automation requires active configuration in SALA365’s Microsoft 365 account.</p>
-        <div class="hero-actions" style="justify-content: center; margin-top: 24px">
-          <a class="button" href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">Open @Sala365Bot</a>
-          <a class="button button-secondary" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Open registration form</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="contact-card">
-          <div>
-            <p class="eyebrow">Let’s get started</p>
-            <h2>Let’s build your next capability.</h2>
-            <p>Contact SALA365 to explore a course, discuss an organizational learning need, or start a university partnership conversation.</p>
-            <div class="contact-details">
-              <a href="mailto:admin@sala365.com">admin@sala365.com</a>
-              <a href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">@Sala365Bot on Telegram</a>
-            </div>
-          </div>
-          <a class="button" href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">
-            Message us
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </a>
-        </div>
+        <span class="contact-decoration" aria-hidden="true">S</span>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <a class="brand footer-brand" href="#home" aria-label="SALA365 home">
-        <img src="logo.png" alt="SALA365">
-      </a>
-      <p class="footer-note">&copy; <span id="current-year"></span> SALA365. Technology Academy &amp; Consulting Center.</p>
+      <a class="brand footer-brand" href="#home" aria-label="SALA365 home"><img src="/logo.png" alt="SALA365"></a>
+      <p class="footer-note">&copy; <span id="current-year"></span> SALA365 · Technology Academy &amp; Consulting Center</p>
       <div class="footer-links">
-        <a href="https://www.facebook.com/sala365Cambodia">Facebook</a>
-        <a href="https://t.me/Sala365Bot">Telegram</a>
+        <a href="https://www.facebook.com/sala365Cambodia" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://t.me/Sala365Bot" target="_blank" rel="noopener noreferrer">Telegram</a>
         <a href="mailto:admin@sala365.com">Email</a>
-        <a href="/admin.html">Manage content</a>
       </div>
     </div>
   </footer>
-
-  <script src="/script.js?v=4" defer></script>
+  <script src="/script.js?v=5" defer></script>
 </body>
 </html>
