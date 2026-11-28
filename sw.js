@@ -1,11 +1,11 @@
 // This is the service worker file.
 // It's responsible for caching the site's assets so it can work offline.
 
-const CACHE_NAME = 'sala365-cache-v6';
+const CACHE_NAME = 'sala365-cache-v7';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/style.css?v=6',
+  '/style.css?v=8',
   '/script.js?v=6',
   '/logo.png'
 ];
