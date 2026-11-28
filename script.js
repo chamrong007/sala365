@@ -1,83 +1,33 @@
-// --- Service Worker Registration ---
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      })
-      .catch(err => {
-        console.log('ServiceWorker registration failed: ', err);
-      });
-  });
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.querySelector("#primary-navigation");
+
+if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+        const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!isExpanded));
+        menuButton.setAttribute("aria-label", isExpanded ? "Open navigation menu" : "Close navigation menu");
+        navigation.classList.toggle("is-open", !isExpanded);
+    });
+
+    navigation.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+            navigation.classList.remove("is-open");
+        }
+    });
 }
 
+const currentYear = document.querySelector("#current-year");
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
 
-// --- Mobile menu toggle ---
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileCoursesBtn = document.getElementById('mobile-courses-btn');
-const mobileCoursesDropdown = document.getElementById('mobile-courses-dropdown');
-const mobileCoursesArrow = document.getElementById('mobile-courses-arrow');
-
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-
-mobileCoursesBtn.addEventListener('click', () => {
-    mobileCoursesDropdown.classList.toggle('open');
-    mobileCoursesArrow.classList.toggle('rotate-180');
-});
-
-// --- Course Detail Modal ---
-const courseWrappers = document.querySelectorAll('.course-wrapper');
-
-courseWrappers.forEach(wrapper => {
-    const targetId = wrapper.dataset.target;
-    if(!targetId) return;
-
-    const modal = document.getElementById(targetId);
-    if (!modal) return;
-    
-    const closeModalBtn = modal.querySelector('.close-modal-btn');
-    
-    wrapper.addEventListener('click', (event) => {
-        if (event.target.closest('a')) {
-            return;
-        }
-        modal.classList.add('open');
-    });
-    
-    closeModalBtn.addEventListener('click', () => {
-        modal.classList.remove('open');
-    });
-    
-    modal.addEventListener('click', (e) => {
-         if(e.target === modal) {
-             modal.classList.remove('open');
-        }
-    });
-});
-
-// --- Tab Functionality for Modals---
-function setupTabs(modalId) {
-    const detailModal = document.querySelector(modalId);
-    if (detailModal) {
-        const tabButtons = detailModal.querySelectorAll('.tab-btn');
-        const tabContents = detailModal.querySelectorAll('.tab-content');
-
-        if(tabButtons.length > 0) {
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    button.classList.add('active');
-                    detailModal.querySelector(`#${button.dataset.tab}`).classList.add('active');
-                });
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js")
+            .catch((error) => {
+                console.error("Service worker registration failed:", error);
             });
-        }
-    }
+    });
 }
-
-// Setup tabs for all modals that have them
-setupTabs('#detail-overlay-1');
-setupTabs('#detail-overlay-2');
