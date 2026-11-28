@@ -37,7 +37,9 @@ themeButtons.forEach((button) => {
         setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
     });
 });
-setTheme(document.documentElement.dataset.theme || "light");
+if (themeButtons.length) {
+    setTheme(document.documentElement.dataset.theme || "light");
+}
 
 const currentYear = document.querySelector("#current-year");
 if (currentYear) {
