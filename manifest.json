@@ -4,8 +4,8 @@
   "description": "An educational platform for modern learning.",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#e0f2fe",
-  "theme_color": "#4f46e5",
+  "background_color": "#f6f9f7",
+  "theme_color": "#147c4b",
   "icons": [
     {
       "src": "/images/icon-192.png",

@@ -3,9 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f7f9f7">
   <meta name="description" content="SALA365 provides professional Microsoft training and technology consulting for individuals and organizations.">
   <title>SALA365 | Microsoft Training &amp; Consulting</title>
+  <script>
+    document.documentElement.dataset.theme =
+      localStorage.getItem("sala365-theme") ||
+      (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
@@ -432,7 +437,7 @@
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
   </style>
-  <link rel="stylesheet" href="/style.css?v=2">
+  <link rel="stylesheet" href="/style.css?v=3">
 </head>
 <body>
   <header class="site-header">
@@ -451,8 +456,14 @@
         <a href="#training">Training</a>
         <a href="#paths">Certification paths</a>
         <a href="#students">For students</a>
+        <a href="#updates">Latest updates</a>
         <a href="#corporate">For organizations</a>
         <a href="#contact">About SALA365</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          <svg class="theme-icon theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <svg class="theme-icon theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke-linecap="round"></path></svg>
+          <span class="theme-label">Theme</span>
+        </button>
         <a class="button nav-cta" href="https://forms.cloud.microsoft/r/iywsNMEwHw" target="_blank" rel="noopener noreferrer">Register Training</a>
       </nav>
     </div>
@@ -582,6 +593,24 @@
             <h3>Technology consulting</h3>
             <p>Get guidance to assess your needs, plan learning, and make informed technology decisions.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section updates-section" id="updates" hidden>
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">From SALA365</p>
+          <h2>Fresh ideas and upcoming learning.</h2>
+          <p>Explore recent technology notes and find a course that fits your next step.</p>
+        </div>
+        <div class="updates-group" id="technology-updates" hidden>
+          <h3 class="updates-title">Technology</h3>
+          <div class="updates-grid" id="technology-list"></div>
+        </div>
+        <div class="updates-group" id="course-updates" hidden>
+          <h3 class="updates-title">Courses &amp; upcoming sessions</h3>
+          <div class="updates-grid" id="course-list"></div>
         </div>
       </div>
     </section>
@@ -768,10 +797,11 @@
       <div class="footer-links">
         <a href="https://www.facebook.com/sala365Cambodia">Facebook</a>
         <a href="https://t.me/chamrong_vann">Telegram</a>
+        <a href="/admin.html">Manage content</a>
       </div>
     </div>
   </footer>
 
-  <script src="/script.js?v=2" defer></script>
+  <script src="/script.js?v=3" defer></script>
 </body>
 </html>
