@@ -1,12 +1,12 @@
 // This is the service worker file.
 // It's responsible for caching the site's assets so it can work offline.
 
-const CACHE_NAME = 'sala365-cache-v5';
+const CACHE_NAME = 'sala365-cache-v6';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/style.css?v=5',
-  '/script.js?v=5',
+  '/style.css?v=6',
+  '/script.js?v=6',
   '/logo.png'
 ];
 
@@ -23,6 +23,27 @@ self.addEventListener('install', event => {
 
 // Serve cached content when offline
 self.addEventListener('fetch', event => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
+          }
+
+          return caches.open(CACHE_NAME)
+            .then(cache => cache.put(event.request, response.clone()))
+            .then(() => response)
+            .catch(error => {
+              console.error('Page cache update failed:', error);
+              return response;
+            });
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then(response => {
